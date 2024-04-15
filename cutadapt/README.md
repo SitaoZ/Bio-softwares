@@ -27,7 +27,7 @@ tail -n 4 SRR18079087_1.fastq | cutadapt -a CTGTAGGCACCATCA - > output.fastq  # 
 | Anchored 3’ adapter | -a ADAPTER$ |
 | Anchored 5’ adapter | -g ^ADAPTER |
 | 5’ or 3’ (both possible)| -b ADAPTER |
-| Linked adapter | -a ^ADAPTER1...ADAPTER2 \n -g ADAPTER1...ADAPTER2|
+| Linked adapter | -a ^ADAPTER1...ADAPTER2 <br> -g ADAPTER1...ADAPTER2|
 
 
 
