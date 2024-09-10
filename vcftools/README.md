@@ -32,7 +32,7 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 - --remove-indels 保留SNP
 
 #### 4.根据VCF文件的第七列FILTER进行过滤
-- --remove-filterar-all 保留FILTER列为PASS的位点
+- --remove-filtered-all 保留FILTER列为PASS的位点
 - --keep-filtered, --remove-filtered 保留或去除特定的FILTER标签，可多次使用
 
 #### 5.根据VCF文件第八列INFO进行过滤
