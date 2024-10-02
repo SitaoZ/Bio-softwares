@@ -68,19 +68,19 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 - --counts, 位点数目的统计
 
 #### 2.位点覆盖深度Depth统计
-- depth 输出每个个体的平均覆盖度， 以idepth文件展示
+- --depth 输出每个个体的平均覆盖度， 以idepth文件展示
 - --site-depth, --site-mean-depth 每个位点的所有个体深度
 - --geno-depth 每个基因型的覆盖深度文件
 
 #### 3. LD计算
-- --hap-r2 同时输出r^2值，D值和D'值
-- --geno-r2
-- --geno-chisq
-- --hap-r2-positions FILE, --geno-r2-positions FILE和已有文件中的点做LD计算
-- --ld-window INT LD计算的最大SNP数目，即LD-window。 --ld-window-min最小数目
-- --ld-window-bp INT LD计算窗口的实际物理距离。--ld-window-bp-min
-- --min-r2小于r2相关系数值将不被展示
-- --interchrom-hap-r2, --interchrom-geno-r2跨染色体的r2值计算。
+- --hap-r2 使用分型的单倍型输出报告 r^2、D 和 D'统计数据的文件。这些是群体遗传学文献中经常报道的 LD 的传统测量方法。输出文件的后缀为“.hap.ld”。此选项假定 VCF 输入文件具有定相单倍型。
+- --geno-r2 计算编码为 0、1 和 2 的基因型之间的平方相关系数，以表示每个个体中非参考等位基因的数量。这与 PLINK 报告的 LD 测量相同。 D 和 D' 统计数据仅适用于分阶段基因型。输出文件的后缀为“.geno.ld”。
+- --geno-chisq 如果你的数据包含具有两个以上等位基因的位点，则此选项可用于通过卡方统计来测试基因型独立性。输出文件的后缀为“.geno.chisq”。
+- --hap-r2-positions <positions list file>, --geno-r2-positions <positions list file>，输出一个文件，报告所提供文件中包含的位点相对于所有其他位点的r2统计信息。输出文件的后缀为“.list.hap.ld”或“.list.geno.ld”，具体取决于使用的选项。
+- --ld-window <integer> LD计算的最大SNP数目，即LD-window。 --ld-window-min <integer> 最小数目。
+- --ld-window-bp <integer> LD计算窗口的实际物理距离。--ld-window-bp-min <integer>
+- --min-r2 <float> 小于r2相关系数值将不被展示
+- --interchrom-hap-r2, --interchrom-geno-r2 跨染色体的r2值计算。
 
 ### 4. Ts/Tv计算 (Transition & Transversion)
 - --TsTv INT 计算此选项定义的大小的窗口中的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv”。
@@ -95,7 +95,7 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 
 ### 6. FST 计算
 - --weir-fst-pop <filename> 此选项用于计算 Weir 和 Cockerham 1984 年论文中的 Fst 估计值。这是 Fst 的首选计算。提供的文件必须包含 VCF 文件中与一个群体相对应的个体列表（每行一个个体）。该选项可以多次使用来计算两个以上群体的 Fst。这些文件也将作为“--keep”选项包含在内。默认情况下，计算是基于每个站点进行的。输出文件的后缀为“.weir.fst”。
--- --fst-window-size <integer>, --fst-window-step <integer> 这些选项可以与“--weir-fst-pop”一起使用，在窗口基础上而不是在每个站点基础上进行 Fst 计算。这些参数指定所需的窗口大小和窗口之间的所需步长。
+- --fst-window-size <integer>, --fst-window-step <integer> 这些选项可以与“--weir-fst-pop”一起使用，在窗口基础上而不是在每个站点基础上进行 Fst 计算。这些参数指定所需的窗口大小和窗口之间的所需步长。
 
 ### 7. 其他计算 (OUTPUT OTHER STATISTICS)
 - --het 计算每个个体的杂合性度量。具体来说，使用矩量法估计每个个体的近交系数 F。生成的文件具有后缀“.het”。
