@@ -104,9 +104,9 @@ LD计算窗口的实际物理距离。
 测量窗口中的核苷酸多样性，提供的数字作为窗口大小。输出文件的后缀为“.windowed.pi”。后者是一个可选参数，用于指定窗口之间的步长。
 
 ### 6. FST 计算
-- --weir-fst-pop <filename>   
+- --weir-fst-pop `filename`   
 此选项用于计算Weir和 Cockerham 1984 年论文中的 Fst 估计值。这是 Fst 的首选计算。提供的文件必须包含 VCF 文件中与一个群体相对应的个体列表（每行一个个体）。该选项可以多次使用来计算两个以上群体的 Fst。这些文件也将作为“--keep”选项包含在内。默认情况下，计算是基于每个站点进行的。输出文件的后缀为“.weir.fst”。
-- --fst-window-size <integer>, --fst-window-step <integer>   
+- --fst-window-size `integer`, --fst-window-step `integer`     
 这些选项可以与“--weir-fst-pop”一起使用，在窗口基础上而不是在每个站点基础上进行 Fst 计算。这些参数指定所需的窗口大小和窗口之间的所需步长。
 
 ### 7. 其他计算 (OUTPUT OTHER STATISTICS)
@@ -114,7 +114,7 @@ LD计算窗口的实际物理距离。
 计算每个个体的杂合性度量。具体来说，使用矩量法估计每个个体的近交系数 F。生成的文件具有后缀“.het”。
 - --hardy   
 报告Hardy-Weinberg平衡检验中每个位点的p值（由 Wigginton、Cutler 和 Abecasis (2005) 定义）。生成的文件（后缀为“.hwe”）还包含纯合子和杂合子的观察数以及 HWE 下相应的预期数。
-- --TajimaD <integer>   
+- --TajimaD `integer`   
 在指定数量大小的箱中输出 Tajima 的 D 统计量。输出文件的后缀为“.Tajima.D”。
 - --indv-freq-burden   
 此选项计算特定频率的每个个体内的变体数量。生成的文件具有后缀“.ifreqburden”。
@@ -130,7 +130,7 @@ LD计算窗口的实际物理距离。
 生成一个文件，报告每个人的缺失情况。该文件的后缀为“.imiss”。
 - --missing-site   
 生成一个文件，报告每个站点的缺失情况。该文件的后缀为“.lmiss”。
-- --SNPdensity <integer>   
+- --SNPdensity `integer`     
 计算此选项定义的大小窗口中 SNP 的数量和密度。生成的输出文件具有后缀“.snpden”。
 - --kept-sites   
 生成一个文件，列出过滤后保留的所有站点。该文件的后缀为“.kept.sites”。
@@ -140,21 +140,21 @@ LD计算窗口的实际物理距离。
 此选项将生成一个文件，详细说明单例的位置以及它们出现的个体。该文件报告真正的单例和私有双例（即次要等位基因仅出现在单个个体中且该个体对该等位基因是纯合的 SNP） ）。输出文件的后缀为“.singletons”。
 - --hist-indel-len   
 此选项将生成所有 indel（包括 SNP）长度的直方图文件。它显示输入文件中至少出现一次的 indel 长度的所有 indel 的计数和百分比。 SNP 被视为长度为零的插入缺失。输出文件的后缀为“.indel.hist”。
-- --hapcount <BED file>   
+- --hapcount `BED file`   
 此选项将输出用户指定的窗口内唯一单倍型的数量，如 BED 文件所定义。输出文件的后缀为“.hapcount”。
-- --mendel   <PED file>   
+- --mendel   `PED file`   
 此选项用于报告trios中识别的孟德尔错误。该命令需要 PLINK 样式的 PED 文件，前四列指定家庭 ID、孩子 ID、父亲 ID 和母亲 ID。该命令的输出具有后缀“.mendel”。
-- --extract-FORMAT-info <string>   
+- --extract-FORMAT-info `string`   
 从 VCF 文件中与指定格式标识符相关的基因型字段中提取信息。生成的输出文件具有后缀“.<FORMAT_ID>.FORMAT”。例如，以下命令将提取所有 GT（即基因型）条目：`vcftools --vcf file1.vcf --extract-FORMAT-info GT`
-- --get-INFO <string>   
+- --get-INFO `string`   
 该选项用于从 VCF 文件中的 INFO 字段中提取信息。 <string> 参数指定要提取的 INFO 标记，并且可以多次使用该选项以提取多个 INFO 条目。生成的文件带有后缀“.INFO”，在制表符分隔的表中包含所需的 INFO 信息。例如，要提取 NS 和 DB 标志，可以使用以下命令：`vcftools --vcf file1.vcf --get-INFO NS --get-INFO DB`
 
 ### 8. 输出格式
 - --recode, --recode-bcf   
 这些选项用于在应用用户指定的过滤选项后从输入 VCF 或 BCF 文件生成 VCF 或 BCF 格式的新文件。输出文件的后缀为“.recode.vcf”或“.recode.bcf”。默认情况下，INFO 字段将从输出文件中删除，因为 INFO 值可能会因重新编码而失效（例如，如果删除个体，则可能需要重新计算总深度）。此行为可能会被以下选项覆盖。默认情况下，BCF 文件被写为 BGZF 压缩文件。
-- --recode-INFO <string>, --recode-INFO-all   
+- --recode-INFO `string`, --recode-INFO-all   
 这些选项可以与上述重新编码选项一起使用来定义要保留在输出文件中的 INFO 键名称。该选项可以多次使用以保留更多的 INFO 字段。第二个选项用于保留原始文件中的所有 INFO 值。
-- --contig <string>   
+- --contig `string`   
 当输入文件没有任何 contig 声明时，此选项可以与 --recode-bcf 结合使用。此选项需要一个每行包含一个重叠群标头的文件名。这些行包含在输出文件中。
 
 ### 9. 格式转换
