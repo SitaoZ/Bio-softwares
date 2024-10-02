@@ -4,7 +4,7 @@ vcftools 可以处理vcf/bcf文件，包括数据的过滤，格式转换，变�
 vcftools [github](https://vcftools.github.io/index.html)  
 vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FILTERING OPTIONS ] [ OUTPUT OPTIONS ]
 
-# 输入参数
+### 输入参数
 
 - --vcf
 - --gvcf
@@ -90,26 +90,26 @@ LD计算窗口的实际物理距离。
 - --interchrom-hap-r2, --interchrom-geno-r2    
 跨染色体的r2值计算。
 
-### 4. Ts/Tv计算 (Transition & Transversion)
+#### 4. Ts/Tv计算 (Transition & Transversion)
 - --TsTv `integer` 计算此选项定义的大小的窗口中的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv”。
 - --TsTv-summary   计算所有转换和颠换的简单摘要。输出文件的后缀为“.TsTv.summary”。
 - --TsTv-by-count  计算作为替代等位基因计数函数的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv.count”。
 - --TsTv-by-qual   计算转换/颠换比率作为 SNP 质量阈值的函数。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv.qual”。
 - --FILTER-summary 生成每个 FILTER 类别的 SNP 数量和 Ts/Tv 比率的摘要。输出文件的后缀为“.FILTER.summary”。
 
-### 5. 核酸多样性统计 (Nucleotide divergence statistic)
+#### 5. 核酸多样性统计 (Nucleotide divergence statistic)
 - --site-pi   
 测量每个位点的核苷酸差异。输出文件的后缀为“.sites.pi”。
 - --window-pi `integer`, --window-pi-step `integer`     
 测量窗口中的核苷酸多样性，提供的数字作为窗口大小。输出文件的后缀为“.windowed.pi”。后者是一个可选参数，用于指定窗口之间的步长。
 
-### 6. FST 计算
+#### 6. FST 计算
 - --weir-fst-pop `filename`   
 此选项用于计算Weir和 Cockerham 1984 年论文中的 Fst 估计值。这是 Fst 的首选计算。提供的文件必须包含 VCF 文件中与一个群体相对应的个体列表（每行一个个体）。该选项可以多次使用来计算两个以上群体的 Fst。这些文件也将作为“--keep”选项包含在内。默认情况下，计算是基于每个站点进行的。输出文件的后缀为“.weir.fst”。
 - --fst-window-size `integer`, --fst-window-step `integer`     
 这些选项可以与“--weir-fst-pop”一起使用，在窗口基础上而不是在每个站点基础上进行 Fst 计算。这些参数指定所需的窗口大小和窗口之间的所需步长。
 
-### 7. 其他计算 (OUTPUT OTHER STATISTICS)
+#### 7. 其他计算 (OUTPUT OTHER STATISTICS)
 - --het   
 计算每个个体的杂合性度量。具体来说，使用矩量法估计每个个体的近交系数 F。生成的文件具有后缀“.het”。
 - --hardy   
@@ -149,7 +149,7 @@ LD计算窗口的实际物理距离。
 - --get-INFO `string`   
 该选项用于从 VCF 文件中的 INFO 字段中提取信息。 <string> 参数指定要提取的 INFO 标记，并且可以多次使用该选项以提取多个 INFO 条目。生成的文件带有后缀“.INFO”，在制表符分隔的表中包含所需的 INFO 信息。例如，要提取 NS 和 DB 标志，可以使用以下命令：`vcftools --vcf file1.vcf --get-INFO NS --get-INFO DB`
 
-### 8. 输出格式
+#### 8. 输出格式
 - --recode, --recode-bcf   
 这些选项用于在应用用户指定的过滤选项后从输入 VCF 或 BCF 文件生成 VCF 或 BCF 格式的新文件。输出文件的后缀为“.recode.vcf”或“.recode.bcf”。默认情况下，INFO 字段将从输出文件中删除，因为 INFO 值可能会因重新编码而失效（例如，如果删除个体，则可能需要重新计算总深度）。此行为可能会被以下选项覆盖。默认情况下，BCF 文件被写为 BGZF 压缩文件。
 - --recode-INFO `string`, --recode-INFO-all   
@@ -179,17 +179,17 @@ LD计算窗口的实际物理距离。
 注意：第一个选项在大型数据集上可能会非常慢。建议使用 --chr 选项来划分数据集，或者使用 --plink-tped 选项以 PLINK 转置格式输出带有后缀“.tped”和“.tfam”的文件。
 对于人类以外物种的变异位点的使用，--chrom-map 选项可用于指定一个文件名，该文件名具有染色体名称到所需整数值的制表符分隔映射，每条染色体一行。该文件必须包含文件中找到的每个染色体值的映射。
 
-### 9. 比较选项
+#### 9. 比较选项
 这些选项用于将原始变体文件与另一个变体文件进行比较并输出结果。所有 diff 函数都要求两个文件包含相同的染色体，并且文件按相同的顺序排序。如果其中一个文件包含另一个文件不包含的染色体，请使用 --not-chr 过滤器将其从分析中删除。
 
-#### 9.1 DIFF VCF FILE
+##### 9.1 DIFF VCF FILE
 
 - --diff `filename`
 - --gzdiff `filename`
 - --diff-bcf `filename`
 这些选项将原始输入文件与指定的 VCF、gzip 压缩的 VCF 或 BCF 文件进行比较。这些选项必须与下面描述的一个附加选项一起指定，以便指定要执行的比较类型。有关典型用法，请参阅示例部分。
 
-#### 9.2 DIFF OPTIONS
+##### 9.2 DIFF OPTIONS
 
 - --diff-site   
 输出每个文件共有/唯一的站点。输出文件的后缀为“.diff.sites_in_files”。
