@@ -19,13 +19,13 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 ### 过滤参数
 #### 1.根据位置过滤
 - --chr `chromosome` , --not-chr `chromosome` 指定过滤选择的染色体，可以多次使用
-- --from-bp integer, --to-bp integer      指定区域，需要配合--chr使用
-- --positions filename, --exclude-positions filename 接tab分割的多个坐标位置文件
-- --bed filename, --exclude-bed filename            根据bed文件过滤
+- --from-bp `integer`, --to-bp `integer`      指定区域，需要配合--chr使用
+- --positions `filename`, --exclude-positions `filename` 接tab分割的多个坐标位置文件
+- --bed `filename`, --exclude-bed `filename`            根据bed文件过滤
 
 #### 2.根据指定ID位点过滤
-- --snp <string> 根据VCF文件的第三列ID的snp名进行过滤
-- --snps <filename>, --exclude <filename> 根据ID文件进行过滤
+- --snp `string` 根据VCF文件的第三列ID的snp名进行过滤
+- --snps `filename`, --exclude `filename` 根据ID文件进行过滤
  
 #### 3.变异类型过滤
 - --keep-only-indels 保留INDEL
@@ -40,26 +40,26 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 - --remove-INFO 根据INFO列的指定tag进行过滤
 
 #### 6.根据ALLEL进行过滤
-- --maf <float>, --max-maf <float> MinorAllele Frequency二等位基因频率进行过滤，常为--maf 0.05，即保留大于0.05的位点
-- --non-ref-af <float>，--non-ref-ac <integer> 保留都是ALT变异的位点
-- --mac <integer>, --max-mac <integer>         保留Minor Allel Count 数大于integer数的位点
+- --maf `float`, --max-maf `float` MinorAllele Frequency二等位基因频率进行过滤，常为--maf 0.05，即保留大于0.05的位点
+- --non-ref-af `float`，--non-ref-ac `integer` 保留都是ALT变异的位点
+- --mac `integer`, --max-mac `integer`         保留Minor Allel Count 数大于integer数的位点
 - --min-alleles 2, --max-alleles 2             筛选保留含有2个ALT变异的位点，常用
 
 #### 7.根据基因型GENOTYPE数据进行过滤
-- --min-meanDP <float>, --max-meanDP <float>，根据平均覆盖深度进行过滤。-min-meanDP 3
-- --hwe <float>         哈温平衡检测，根据pvalue值进行过滤，保留值以内的。--hwe 0.01
-- --max-missing <float> 常用，缺失率，0为接受完全缺失，1位接受数据全都存在，一般为0.8
-- --max-missing-count <integer> 缺失的个体数目超过integer，即被过滤
+- --min-meanDP `float`, --max-meanDP `float`，根据平均覆盖深度进行过滤。-min-meanDP 3
+- --hwe `float`         哈温平衡检测，根据pvalue值进行过滤，保留值以内的。--hwe 0.01
+- --max-missing `float` 常用，缺失率，0为接受完全缺失，1位接受数据全都存在，一般为0.8
+- --max-missing-count `integer` 缺失的个体数目超过integer，即被过滤
 - --phase          删除unpased位点
-- --minQ <integer> 保留Quality值大于integer的位点
+- --minQ `integer` 保留Quality值大于integer的位点
 #### 8.对样品个体进行过滤
-- --idv <string>, --remove-idv <string>       保留/删除指定的样本
-- --keep <filename>, --remove <filename>      保留/删除多个样本的文件
-- --max-idv <integer> 随机保留integer数目的样本
+- --idv `string`, --remove-idv `string`       保留/删除指定的样本
+- --keep `filename`, --remove `filename`      保留/删除多个样本的文件
+- --max-idv `integer` 随机保留integer数目的样本
 #### 9.基因型过滤
-- --remove-filtered-geno-all, --remove-filtered-geno <string> 删除FILTER FLAG的位点
-- --minGQ <float> 删除GQ值低于数值的位点
-- --minDP <float>, --maxDP <float> 保留覆盖率min~max之间的位点
+- --remove-filtered-geno-all, --remove-filtered-geno `string` 删除FILTER FLAG的位点
+- --minGQ `float` 删除GQ值低于数值的位点
+- --minDP `float`, --maxDP `float` 保留覆盖率min~max之间的位点
 
 
 ### 计算统计参数
@@ -79,19 +79,19 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 计算编码为0、1和2的基因型之间的平方相关系数，以表示每个个体中非参考等位基因的数量。这与 PLINK 报告的 LD 测量相同。 D 和 D' 统计数据仅适用于分阶段基因型。输出文件的后缀为“.geno.ld”。
 - --geno-chisq  
 如果你的数据包含具有两个以上等位基因的位点，则此选项可用于通过卡方统计来测试基因型独立性。输出文件的后缀为“.geno.chisq”。
-- --hap-r2-positions <positions list file>, --geno-r2-positions <positions list file>  
+- --hap-r2-positions `positions list file`, --geno-r2-positions `positions list file`    
 输出一个文件，报告所提供文件中包含的位点相对于所有其他位点的r2统计信息。输出文件的后缀为“.list.hap.ld”或“.list.geno.ld”，具体取决于使用的选项。
-- --ld-window <integer>, --ld-window-min <integer>     
+- --ld-window `integer`, --ld-window-min `integer`     
 LD计算的最大SNP数目，即LD-window。  --ld-window-min最小数目。
-- --ld-window-bp <integer>,--ld-window-bp-min <integer>    
+- --ld-window-bp `integer`,--ld-window-bp-min `integer`    
 LD计算窗口的实际物理距离。
-- --min-r2 <float>    
+- --min-r2 `float`    
 小于r2相关系数值将不被展示
 - --interchrom-hap-r2, --interchrom-geno-r2    
 跨染色体的r2值计算。
 
 ### 4. Ts/Tv计算 (Transition & Transversion)
-- --TsTv <integer> 计算此选项定义的大小的窗口中的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv”。
+- --TsTv `integer` 计算此选项定义的大小的窗口中的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv”。
 - --TsTv-summary   计算所有转换和颠换的简单摘要。输出文件的后缀为“.TsTv.summary”。
 - --TsTv-by-count  计算作为替代等位基因计数函数的转换/颠换比率。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv.count”。
 - --TsTv-by-qual   计算转换/颠换比率作为 SNP 质量阈值的函数。仅使用双等位基因 SNP。生成的输出文件具有后缀“.TsTv.qual”。
@@ -100,7 +100,7 @@ LD计算窗口的实际物理距离。
 ### 5. 核酸多样性统计 (Nucleotide divergence statistic)
 - --site-pi   
 测量每个位点的核苷酸差异。输出文件的后缀为“.sites.pi”。
-- --window-pi <integer>, --window-pi-step <integer>   
+- --window-pi `integer`, --window-pi-step `integer`     
 测量窗口中的核苷酸多样性，提供的数字作为窗口大小。输出文件的后缀为“.windowed.pi”。后者是一个可选参数，用于指定窗口之间的步长。
 
 ### 6. FST 计算
