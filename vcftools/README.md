@@ -18,10 +18,10 @@ vcftools [ --vcf FILE | --gzvcf FILE | --bcf FILE] [ --out OUTPUT PREFIX ] [ FIL
 
 ### 过滤参数
 #### 1.根据位置过滤
-- --chr <chromosome> , --not-chr <chromosome> 指定过滤选择的染色体，可以多次使用
-- --from-bp <integer>, --to-bp <integer>      指定区域，需要配合--chr使用
-- --positions <filename>, --exclude-positions <filename> 接tab分割的多个坐标位置文件
-- --bed <filename> , --exclude-bed <filename>            根据bed文件过滤
+- --chr chromosome , --not-chr chromosome 指定过滤选择的染色体，可以多次使用
+- --from-bp integer, --to-bp integer      指定区域，需要配合--chr使用
+- --positions filename, --exclude-positions filename 接tab分割的多个坐标位置文件
+- --bed filename, --exclude-bed filename            根据bed文件过滤
 
 #### 2.根据指定ID位点过滤
 - --snp <string> 根据VCF文件的第三列ID的snp名进行过滤
