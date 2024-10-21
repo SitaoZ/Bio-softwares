@@ -9,7 +9,7 @@ AlphaFold3预测的蛋白质之间的互作，使用PyMOL进行查看[example](h
 [AlphaFold3](https://alphafoldserver.com/) 预测互作，产生cif文件，一般选择model_0.cif(互作效果最好的)
 
 - step 2  导入文件  
-PyMOL导入cif文件，更改背景色 `Display` -> `Background` -> `White`
+[PyMOL](https://pymol.org/)导入cif文件，更改背景色 `Display` -> `Background` -> `White`
 
 - step 3 更名和改色   
 `Mouse` -> `Selection Mode` -> `Chains`
