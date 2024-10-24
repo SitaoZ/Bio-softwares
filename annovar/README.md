@@ -13,3 +13,14 @@ Annovar可利用最新信息对从不同基因组（包括人类基因组 hg18�
 识别特定数据库中记录的变体，例如，变体是否在 dbSNP 中报告，1000 基因组计划、NHLBI-ESP 6500 外显子组或外显子组聚合联盟 (ExAC) 或基因组聚合数据库 (gnomAD) 中的等位基因频率是多少，计算 SIFT/PolyPhen/LRT/MutationTaster/MutationAssessor/FATHMM/MetaSVM/MetaLR 分数，查找 GERP++ 分数 <2 或 CADD>10 的基因间变体，或特定突变的许多其他注释。
 
 
+| Value      | Default precedence | Explanation | Sequence Ontology |
+| :--------  | :-----: | :----: | ----:|
+| exonic     |  1   |  variant overlaps a coding  |  exonic_variant (SO:0001791) |
+| splicing   |  1   |  variant is within 2-bp of a splicing junction (use -splicing_threshold to change this) |  splicing_variant(SO:0001568)  |
+| ncRNA      |  2   |  variant overlaps a transcript without coding annotation in the gene definition |  non_coding_transcript_variant (S):0001619) |
+| UTR5       |  3   | variant overlaps a 5' untranslated region |   5_prime_UTR_variant(SO:0001632)   |
+| UTR3       |  3   | variant overlaps a 3' untranslated region |  3_prime_UTR_variant (SO:0001624) |
+| intronic   |  4   | variant overlaps an intron | intron_variant (SO:0001627)| 
+| upstream   |  5   | variant overlaps 1-kb region upstream of transcription start site | upstream_gene_variant (SO:0001631) |
+| downstream |  5   | variant overlaps 1-kb region downstream of transcription end site | downstream_gene_variant (SO:0001632) |
+| intergenic |  6   | variant is in intergenic region | intergenic_variant (SO:0001628) |
