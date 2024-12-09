@@ -4,6 +4,7 @@ NBIS sweden : Another Gtf/Gff Analysis Toolkit [source](https://github.com/NBISw
 ### 安装
 
 ```bash
+$ conda install bioconda::agat
 $ conda install -c bioconda agat
 ```
 
