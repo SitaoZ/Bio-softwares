@@ -1,5 +1,5 @@
 ## AGAT
-NBIS sweden : Another Gtf/Gff Analysis Toolkit [source](!https://github.com/NBISweden/AGAT)
+NBIS sweden : Another Gtf/Gff Analysis Toolkit [source](https://github.com/NBISweden/AGAT)
 
 ### 安装
 
