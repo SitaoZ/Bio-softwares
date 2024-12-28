@@ -42,3 +42,6 @@ Moreover, in addition to the two databases provided, as explained in the followi
   
 - configure_file
 <configuration_file> is the path to the configuration file necessary to properly run PhyloPhlAn 3, a detailed description is available here
+
+### 可视化
+生成的最终结果为`input_genomes.tre.treefile`，可是已使用[多种可视化工具](https://en.wikipedia.org/wiki/List_of_phylogenetic_tree_visualization_software)进行可视化
