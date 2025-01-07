@@ -1,7 +1,27 @@
 ## PyMOL 
 
+### PyMol 语法
 
-## AlphaFold3
+- Action
+- Show
+- Hide
+- Label
+- Color
+
+### PymMol 操作
+- 1. 显示所有残基编号
+```bash
+# 为每个氨基酸的α碳（CA）位置标记上该残基的编号
+label name CA, resi
+
+# 去除编号
+label name CA, ""
+```
+
+
+
+
+### AlphaFold3
 AlphaFold3预测的蛋白质之间的互作，使用PyMOL进行查看[example](https://www.bilibili.com/video/BV1Qt8iesE4e/?vd_source=16694f427952f2c01f3659ee0722320a)
 
 
