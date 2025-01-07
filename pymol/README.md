@@ -23,6 +23,16 @@ label name CA, resi
 # 去除编号
 label name CA, ""
 ```
+- 显示亲水和疏水氨基酸
+```bash
+# 疏水氨基酸有9个：Gly,Ala,Val,Leu,Ile,Pro,Phe,Met,Trp
+# 非电极性（亲水）氨基酸有6个：Ser,Thr,Cys,Asn,Gln,Tyr
+# 命令行输入如下命令
+color yellow, resn Gly+Ala+Val+Leu+Ile+Pro+Phe+Met+Trp
+as sphere, resn Gly+Ala+Val+Leu+Ile+Pro+Phe+Met+Trp
+as sphere,   resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
+color blue,  resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
+```
 
 
 
