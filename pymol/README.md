@@ -15,6 +15,7 @@
 - Color
 
 ### PymMol 操作
+
 - 显示所有残基编号
 ```bash
 # 为每个氨基酸的α碳（CA）位置标记上该残基的编号
@@ -23,6 +24,11 @@ label name CA, resi
 # 去除编号
 label name CA, ""
 ```
+
+- 选择选定的残基
+鼠标单击残基，在sele栏目选择L，选择residual
+
+
 - 显示亲水和疏水氨基酸
 ```bash
 # 疏水氨基酸有9个：Gly,Ala,Val,Leu,Ile,Pro,Phe,Met,Trp
@@ -33,6 +39,12 @@ as sphere, resn Gly+Ala+Val+Leu+Ile+Pro+Phe+Met+Trp
 as sphere,   resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 color blue,  resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 ```
+
+- 移动标签
+将模式切换至3-Button Editing, 按住Ctrl， 鼠标拖动标签字符即可
+
+- 切换白色背景
+Display -> Background -> White
 
 
 
