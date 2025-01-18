@@ -40,10 +40,10 @@ as sphere,   resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 color blue,  resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 ```
 
-- 移动标签
+- 移动标签  
 将模式切换至3-Button Editing, 按住Ctrl， 鼠标拖动标签字符即可
 
-- 切换白色背景
+- 切换白色背景  
 Display -> Background -> White
 
 
