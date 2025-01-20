@@ -5,6 +5,7 @@
 - 主要功能：创作高品质的小分子或是生物大分子（特别是蛋白质）的三维结构图像
 - 软件的作者宣称，在所有正式发表的科学文献中的蛋白质结构图像中，有四分之一是使用PyMOL来制作
 - 网站：http://www.pymol.org/
+- DOC: https://pymol.org/dokuwiki/doku.php?id=command:zoom
 
 ### PyMol 语法
 
@@ -46,8 +47,18 @@ color blue,  resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 - 切换白色背景  
 Display -> Background -> White
 
+- 显示序列
+File -> Get PDB -> PDB ID : 1gtf -> Download
+点击SEQ显示序列
 
-
+- 放大缩小 （Zoom In/Out）  
+单击鼠标左键，按住Ctrl, 滚动鼠标滑轮。
+```bash
+zoom  
+zoom complete=1 
+zoom 142/, animate=3 
+zoom (chain A) 
+```
 
 ### AlphaFold3
 AlphaFold3预测的蛋白质之间的互作，使用PyMOL进行查看[example](https://www.bilibili.com/video/BV1Qt8iesE4e/?vd_source=16694f427952f2c01f3659ee0722320a)
