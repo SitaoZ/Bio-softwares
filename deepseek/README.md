@@ -29,7 +29,7 @@ ollama run deepseek-r1:14b
 
 `安装词嵌入模型`   
 
-自家在搭建知识库时，需要加入的嵌入模型   
+自己在搭建知识库时，需要加入的嵌入模型   
 回到ollama网页界面，搜索`dmeta-embedding-zh`模型，点击进去，复制`ollama pull shaw/dmeta-embedding-zh`
 
 
@@ -40,6 +40,7 @@ https://cherry-ai.com/
 
 - 第六步 美化本地部署的deepseek-r1对话框   
 使用Cherry studio AI来进行输入框美化，   
+用户名自定义    
 点击设置，选择`Ollama`，然后选择`deepseek-r1:14b`
 
 - 第七步，搭建独属自己的AI知识库体系
