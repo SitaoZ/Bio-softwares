@@ -36,7 +36,7 @@ k2 download-taxonomy 、
 - taxo.k2d: Contains taxonomy information used to build the database
 
 ```bash
-kraken2-build --build --db kraken_db
+kraken2-build --build --db kraken_db --threads 24
 
 ```
 
