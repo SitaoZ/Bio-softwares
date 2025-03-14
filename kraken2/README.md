@@ -29,6 +29,17 @@ k2 download-taxonomy 、
    --threads 36 
 ```
 
+### 数据库建立
+生成`hash.k2d`, `opts.k2d`, `taxo.k2d`三个文件
+- hash.k2d: Contains the minimizer to taxon mappings
+- opts.k2d: Contains information about the options used to build the database
+- taxo.k2d: Contains taxonomy information used to build the database
+
+```bash
+kraken2-build --build --db kraken_db
+
+```
+
 
 ### 系统分类
 
