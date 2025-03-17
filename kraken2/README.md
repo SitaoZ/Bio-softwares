@@ -46,7 +46,43 @@ kraken2-build --build --db kraken_db --threads 24
 ```bash
 # 单个序列
 kraken2 --db kraken_db seqs.fa
-
-# 双端测序
-kraken2 --paired --classified-out cseqs#.fq seqs_1.fq seqs_2.fq
 ```
+
+```bash
+# 双端测序
+kraken2 --db /data/zhusitao/database/Microbes/kraken2/20250313 \
+        --paired --threads 48 --report aH1_B_kraken_taxonomy.txt --output aH1_B_kraken_output.txt \
+        ../01.fastp/aH1_B_R1.clean.fq.gz ../01.fastp/aH1_B_R2.clean.fq.gz
+# 生成 aH1_B_kraken_output.txt和aH1_B_kraken_taxonomy.txt 文件
+# 其中
+```
+#### kraken_output.txt
+[output格式](https://github.com/DerrickWood/kraken2/wiki/Manual#output-formats)
+- "C"/"U": a one letter code indicating that the sequence was either classified or unclassified.
+
+- The sequence ID, obtained from the FASTA/FASTQ header.
+
+- The taxonomy ID Kraken 2 used to label the sequence; this is 0 if the sequence is unclassified.
+
+- The length of the sequence in bp. In the case of paired read data, this will be a string containing the lengths of the two sequences in bp, separated by a pipe character, e.g. "98|94".
+
+- A space-delimited list indicating the LCA mapping of each k-mer in the sequence(s). For example, "562:13 561:4 A:31 0:1 562:3" would indicate that:
+
+  - the first 13 k-mers mapped to taxonomy ID #562
+  - the next 4 k-mers mapped to taxonomy ID #561
+  - the next 31 k-mers contained an ambiguous nucleotide
+  - the next k-mer was not in the database
+  - the last 3 k-mers mapped to taxonomy ID #562
+Note that paired read data will contain a "|:|" token in this list to indicate the end of one read and the beginning of another.
+
+When Kraken 2 is run against a protein database (see [Translated Search]), the LCA hitlist will contain the results of querying all six frames of each sequence. Reading frame data is separated by a "-:-" token.
+
+#### kraken_taxonomy.txt  
+
+[taxonomy格式](https://github.com/DerrickWood/kraken2/wiki/Manual#sample-report-output-format)
+- Percent of fragments at that taxonomic level
+- Number of fragments at that taxonomic level (the sum of fragments at this level and all those below this level)
+- Number of fragments exactly at that taxonomic level
+- A taxonomic level code: `U`nclassified, `R`oot, `D`omain, `K`ingdom, `P`hylum, `C`lass, `O`rder, `F`amily, `G`enus, or `S`pecies. If the taxonomy is not one of these the number indicates the levels between this node and the appropriate node. See the docs for more information.
+NCBI Taxonomic name
+Scientific name
