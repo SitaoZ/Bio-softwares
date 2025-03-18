@@ -91,4 +91,33 @@ When Kraken 2 is run against a protein database (see [Translated Search]), the L
 
 ```bash
 /data/zhusitao/pipeline/Metagenome/software/Kraken2/kraken2/dump_table
+# report文件合并成biom格式
+kraken-biom \
+./out/*.kreport \ # 输入,report文件
+--max D \ # 最高物种分类
+-o ./out_S/S.biom # 输出， biom文件
+
+# biom转count表格
+convert \
+-i ./out/S.biom \ # 输入，biom文件
+-o ./out/S.count.tsv.tmp \ # 输出，丰度表格
+--to-tsv \ # 指定输出格式
+--header-key taxonomy # 输出分类信息
+
+# 输出文件格式调整，补全物种名
+sed 's/; g__\([ˆ;]\+\); s__/; g__\1; s__\1 /' ./out/S.count.tsv.tmp \
+> ./out/S.taxID.count.tsv
+## taxonID 替换回拉丁名
+sed '/ˆ#/! s/ˆ[0-9]\+\t\(.*[A-Za-z]\+__\([ˆ;]\+\)\)$/\2\t\1/' \
+./out/S.taxID.count.tsv > ./out/S.taxName.count.tsv
+## 保留丰度信息，用于后续绘图
+sed '1d; 2s/ˆ#//' ./out/S.taxName.count.tsv | \
+awk -F "\t" -v 'OFS=\t' '{$NF = ""; { print $0 }}' | \
+sed 's/\t$//' > ./out/S.count.tsv
+
+# 绘制barplot 和 heatmap, 输出相对丰度
+Rscript \
+./Barplot.R \
+out/S.count.tsv 20 \
+out/S.count.out
 ```
