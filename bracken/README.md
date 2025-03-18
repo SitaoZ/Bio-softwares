@@ -38,13 +38,23 @@ KMER_LEN=35
 THREADS=48
 
 #1
-kraken2 --db=${KRAKEN2_DB} --threads=${THREADS} <( find -L ${KRAKEN_DB}/library \( -name "*.fna" -o -name "*.fasta" -o -name "*.fa" \) -exec cat {} + ) > database.kraken
+kraken2 --db=${KRAKEN2_DB} --threads=${THREADS} <( find -L ${KRAKEN_DB}/library \( -name "*.fna" -o -name "*.fasta" -o -name "*.fa" \) -exec cat {} + ) > ${KRAKEN2_DB}/database.kraken
 #2
-kmer2read_distr --seqid2taxid ${KRAKEN_DB}/seqid2taxid.map --taxonomy ${KRAKEN_DB}/taxonomy --kraken database.kraken --output database${READ_LEN}mers.kraken -k ${KMER_LEN} -l ${READ_LEN} -t ${THREADS}
+kmer2read_distr --seqid2taxid ${KRAKEN_DB}/seqid2taxid.map --taxonomy ${KRAKEN_DB}/taxonomy --kraken ${KRAKEN2_DB}/database.kraken --output ${KRAKEN2_DB}/database${READ_LEN}mers.kraken -k ${KMER_LEN} -l ${READ_LEN} -t ${THREADS}
 #3
-python generate_kmer_distribution.py -i database${READ_LEN}mers.kraken; -o database${READ_LEN}mers.kmer_distrib
+python generate_kmer_distribution.py -i ${KRAKEN2_DB}/database${READ_LEN}mers.kraken; -o ${KRAKEN2_DB}/database${READ_LEN}mers.kmer_distrib
 ```
-2. xxx
+2. kraken2 计算
 ```bash
-kraken2 --db=${KRAKEN2_DB} --threads ${THREADS} --report ${SAMPLE}.kreport2 ${SAMPLE} > ${SAMPLE}.kraken2
+kraken2 --db ${KRAKEN2_DB} \
+        --paired --threads ${THREADS} \
+        --confidence 0.8 \
+        --report ${sample}_kraken_taxonomy.txt \
+        --output ${sample}_kraken_output.txt \
+        --gzip-compressed \
+        ../01.fastp/${sample}_R1.clean.fq.gz ../01.fastp/${sample}_R2.clean.fq.gz
+```
+3. bracken 计算
+```bash
+bracken -d ${KRAKEN2_DB} -i ../02.kraken2/L1_A_kraken_taxonomy.txt -o L1_A.bracken -r 150 -l S -t 1
 ```
