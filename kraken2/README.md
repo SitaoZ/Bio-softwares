@@ -86,3 +86,9 @@ When Kraken 2 is run against a protein database (see [Translated Search]), the L
 - 4.A taxonomic level code: `U`nclassified, `R`oot, `D`omain, `K`ingdom, `P`hylum, `C`lass, `O`rder, `F`amily, `G`enus, or `S`pecies. If the taxonomy is not one of these the number indicates the levels between this node and the appropriate node. See the docs for more information.
 - 5.NCBI Taxonomic name
 - 6.Scientific name
+
+### 结果整理
+
+```bash
+/data/zhusitao/pipeline/Metagenome/software/Kraken2/kraken2/dump_table
+```
