@@ -1,7 +1,7 @@
 ## Bracken 
 
 Bracken (Bayesian Reestimation of Abundance with KrakEN)是用来计算宏基因组样本物种丰度的软件。
-Bracken（使用 KrakEN 进行丰度贝叶斯重估）是一种高度精确的统计方法，用于计算宏基因组样本 DNA 序列中物种的丰度。
+[Bracken](https://ccb.jhu.edu/software/bracken/index.shtml?t=manual)（使用 KrakEN 进行丰度贝叶斯重估）是一种高度精确的统计方法，用于计算宏基因组样本 DNA 序列中物种的丰度。
 Bracken 使用 Kraken（一种高度精确的宏基因组分类算法）分配的分类标签来估计样本中每个物种的read数量。Kraken 将read分类到分类树中最佳匹配的位置，但不估计物种的丰度。
 我们使用 Kraken 数据库本身来得出描述每个基因组中有多少序列与数据库中其他基因组相同的概率，并将此信息与特定样本的分配相结合，以估计物种级别、属级别或更高级别的丰度。
 与 Kraken 分类器结合使用时，即使样本包含两个或更多近乎相同的物种，Bracken 也能产生准确的物种和属级别丰度估计值。
