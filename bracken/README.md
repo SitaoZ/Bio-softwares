@@ -58,3 +58,8 @@ kraken2 --db ${KRAKEN2_DB} \
 ```bash
 bracken -d ${KRAKEN2_DB} -i ../02.kraken2/L1_A_kraken_taxonomy.txt -o L1_A.bracken -r 150 -l S -t 1
 ```
+
+4. 合并结果
+```bash
+/data/zhusitao/pipeline/Metagenome/software/Bracken/Bracken/analysis_scripts/combine_bracken_outputs.py  --files s1.bracken s2.bracken s3.bracken --names A,B,C -o merge.bracken.result
+```
