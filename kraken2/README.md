@@ -123,7 +123,7 @@ out/S.count.out
 ```
 
 
--- 查找一个kmer在不在数据库中
+- 查找一个kmer在不在数据库中
 ```bash
 cat kmer.fa
 >Contig00001:1139495:1139515
