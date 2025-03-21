@@ -121,3 +121,17 @@ Rscript \
 out/S.count.tsv 20 \
 out/S.count.out
 ```
+
+
+-- 查找一个kmer在不在数据库中
+```bash
+cat kmer.fa
+>Contig00001:1139495:1139515
+TTATACGGATGCGCCTCAAG
+>Contig00001:256186:256206
+CGGAACTGCTGGAGCAGCAT
+>Contig00003:22178:22198
+CGCTCATGAGCTCAGCCAAT
+>Contig00001:1587932:1587952
+kraken2 --db /data/zhusitao/database/Microbes/kraken2/20250313/ kmer.fa > ZZZZ
+```
