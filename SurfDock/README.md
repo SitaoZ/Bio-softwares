@@ -28,6 +28,8 @@ conda install conda-forge::openbabel
 ```
 
 ## 报错解决
+
+- torch GLIBC
 ```bash
 # 1. pytorch
 mv libcurand.so.10 libcurand.so.10.back
@@ -35,8 +37,9 @@ cp /home/zhusitao/miniconda3/envs/SurfDock/lib/libcurand.so.10.3.0.86 .
 ln -s libcurand.so.10.3.0.86 libcurand.so.10
 ```
 
+- pymesh libstdc++.so.6
 ```bash
-# 2 pymesh
-~/yourpath/.../pymesh/lib/libstdc++.so.6
-mv libstdc++.so.6 libstdc++.so.copy.6
+# 2. pymesh
+cd /home/zhusitao/miniconda3/envs/SurfDock/lib/python3.10/site-packages/pymesh
+mv ./lib/libstdc++.so.6 ./lib/libstdc++.so.copy.6
 ```
