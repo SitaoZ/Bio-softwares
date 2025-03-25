@@ -43,3 +43,14 @@ ln -s libcurand.so.10.3.0.86 libcurand.so.10
 cd /home/zhusitao/miniconda3/envs/SurfDock/lib/python3.10/site-packages/pymesh
 mv ./lib/libstdc++.so.6 ./lib/libstdc++.so.copy.6
 ```
+
+- APBS 版本问题，与对应的GLIBC 不支持 (导致第一步不生成.ply表面文件)
+```bash
+# /data/zhusitao/project/songLab/14.SurfDock/SurfDock/comp_surface/tools/transfer/APBS-3.4.1.Linux/share/apbs/tools/bin/multivalue
+cd /data/zhusitao/project/songLab/14.SurfDock/SurfDock/comp_surface/tools/transfer/APBS-3.4.1.Linux/share/apbs/tools/bin
+ln -s /data/zhusitao/project/songLab/14.SurfDock/software/share/apbs/tools/bin/multivalue
+
+# /data/zhusitao/project/songLab/14.SurfDock/SurfDock/comp_surface/tools/transfer/APBS-3.4.1.Linux/bin/apbs
+cd /data/zhusitao/project/songLab/14.SurfDock/SurfDock/comp_surface/tools/transfer/APBS-3.4.1.Linux/bin/
+ln -s /data/zhusitao/project/songLab/14.SurfDock/software/bin/apbs
+```
