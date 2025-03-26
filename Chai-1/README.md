@@ -1,7 +1,7 @@
 ## Chai-1
 
 Chai-1: Decoding the molecular interactions of life.
-Chai-1 enables unified prediction of proteins, small molecules, DNA, RNA, covalent modifications, and more.
+[Chai-1](https://www.chaidiscovery.com/) enables unified prediction of proteins, small molecules, DNA, RNA, covalent modifications, and more.
 
 ### Install 
 
