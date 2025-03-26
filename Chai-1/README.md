@@ -36,6 +36,58 @@ conda install conda-forge::cxx-compiler
 
 ```bash
 chai-lab --help
+
+Usage: chai-lab [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --install-completion [bash|zsh|fish|powershell|pwsh]
+                                  Install completion for the specified shell.
+  --show-completion [bash|zsh|fish|powershell|pwsh]
+                                  Show completion for the specified shell, to
+                                  copy it or customize the installation.
+  --help                          Show this message and exit.
+
+Commands:
+  fold        Run Chai-1 to fold a complex.
+  a3m-to-pqt  Convert all a3m files in a directory for a *single...
+  citation    Print citation information
+
 ```
 
+
+- fold
+```bash
+chai-lab fold --help
+
+Usage: chai-lab fold [OPTIONS] FASTA_FILE OUTPUT_DIR
+
+  Run Chai-1 to fold a complex.
+
+Arguments:
+  FASTA_FILE  [required]
+  OUTPUT_DIR  [required]
+
+Options:
+  --use-esm-embeddings / --no-use-esm-embeddings
+                                  [default: use-esm-embeddings]
+  --use-msa-server / --no-use-msa-server
+                                  [default: no-use-msa-server]
+  --msa-server-url TEXT           [default: https://api.colabfold.com]
+  --msa-directory PATH
+  --constraint-path PATH
+  --use-templates-server / --no-use-templates-server
+                                  [default: no-use-templates-server]
+  --template-hits-path PATH
+  --recycle-msa-subsample INTEGER
+                                  [default: 0]
+  --num-trunk-recycles INTEGER    [default: 3]
+  --num-diffn-timesteps INTEGER   [default: 200]
+  --num-diffn-samples INTEGER     [default: 5]
+  --num-trunk-samples INTEGER     [default: 1]
+  --seed INTEGER
+  --device TEXT
+  --low-memory / --no-low-memory  [default: low-memory]
+  --help                          Show this message and exit.
+
+```
 
