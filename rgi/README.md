@@ -22,7 +22,7 @@ mamba remove rgi
 - 方法二
 ```bash 
 # pip
-git clone https://github.com/arpcard/rgi
+git clone https://github.com/arpcard/rgi # 下载网络不行，可以直接去github上下载安装包
 conda env create -f conda_env.yml
 conda activate rgi
 pip install git+https://github.com/arpcard/rgi.git
