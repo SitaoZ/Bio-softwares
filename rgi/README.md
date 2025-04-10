@@ -17,7 +17,7 @@ mamba install --channel conda-forge --channel bioconda --channel defaults rgi=6.
 
 # 移除
 mamba remove rgi
-```bash
+```
 
 - 方法二
 ```bash 
