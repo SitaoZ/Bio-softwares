@@ -3,6 +3,7 @@
 Chai-1: Decoding the molecular interactions of life.
 [Chai-1](https://www.chaidiscovery.com/) enables unified prediction of proteins, small molecules, DNA, RNA, covalent modifications, and more.
 
+[refer](https://neurosnap.ai/blog/post/introducing-chai-1-a-commercial-alternative-to-alphafold3/6747d42bbdbd2b3437567ce9)
 ### Install 
 
 ```bash
