@@ -106,3 +106,6 @@ P5 P5 0 0 1 2.512 -3.085 -2.579 1
 
 
 ### 性状转化 Trait transformation 
+在meta-analysis分析中，
+
+`--inverseNormal` 和 `--useResidualAsPhenotype`
