@@ -1,6 +1,7 @@
 ## Cell Ranger 
 
-CellRanger是10X genomics开发用于单细胞测序数据分析的软件。
+CellRanger是10X genomics开发用于单细胞测序数据分析的软件。Cell Ranger是一组分析管道，用于处理Chromium Next GEM单细胞数据，read比对生成特征条形码矩阵，聚类分析和其他二次分析等。Cell Ranger包括5个与3‘单细胞基因表达、5’免疫谱分析和Flex检测相关的管道：
+
 
 - 下载安装
 
@@ -48,3 +49,15 @@ Options:
 ```
 
 - cellranger mkfastq 流程已弃用，并将在未来版本中移除。请使用 Illumina 的 BCL Convert 生成与 Cell Ranger 兼容的 FASTQ 文件。有关详细指导，请参阅生成 FASTQ 页面。
+
+
+- **cellranger count**
+count程序使用FASTQ文件进行比对，过滤，barcode计数，UMI计数。使用barcode构建特征矩阵，进而聚类，基因表达量分析。
+
+- **cellranger multi**
+
+- **cellranger vdj**
+- **cellranger aggr**
+- **cellranger reanalyze**
+- **cellranger annotate**
+- 
