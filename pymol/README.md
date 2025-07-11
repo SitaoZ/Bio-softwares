@@ -73,6 +73,30 @@ Setting -> Transparency -> Surface -> 80%
 - 发表模式     
 Action -> present -> publication
 
+- 直选中DNA
+```bash
+select dna, resn DA+DC+DG+DT
+```
+- 选中蛋白质
+```bash
+select protein_chain, chain A
+```
+
+- 精确选择并标记蛋白质 143 位残基
+```bash
+# 1. 选择所有蛋白质原子（排除DNA）
+select protein, polymer.protein
+
+# 2. 在蛋白质中选择143号残基（指定链ID更准确）
+select res143_protein, resi 143 and polymer.protein
+
+# 3. 标记该残基（显示残基编号和名称）
+label res143_protein, "143-%s" % (resn)
+
+# 4. 高亮显示该残基
+show sticks, res143_protein
+color red, res143_protein
+```
 
 ### AlphaFold3   
 AlphaFold3预测的蛋白质之间的互作，使用PyMOL进行查看[example](https://www.bilibili.com/video/BV1Qt8iesE4e/?vd_source=16694f427952f2c01f3659ee0722320a)
