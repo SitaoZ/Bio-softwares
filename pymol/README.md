@@ -17,7 +17,7 @@
 
 ### PymMol 操作
 
-- 显示所有残基编号
+- 显示所有残基编号  
 ```bash
 # 为每个氨基酸的α碳（CA）位置标记上该残基的编号
 label name CA, resi
@@ -26,11 +26,11 @@ label name CA, resi
 label name CA, ""
 ```
 
-- 选择选定的残基
+- 选择选定的残基  
 鼠标单击残基，在sele栏目选择L，选择residual
 
 
-- 显示亲水和疏水氨基酸
+- 显示亲水和疏水氨基酸  
 ```bash
 # 疏水氨基酸有9个：Gly,Ala,Val,Leu,Ile,Pro,Phe,Met,Trp
 # 非电极性（亲水）氨基酸有6个：Ser,Thr,Cys,Asn,Gln,Tyr
@@ -46,6 +46,9 @@ color blue,  resn Ser+Thr+Cys+Asn+Gln+Tyr+Asp+Glu+Arg+Lys+His
 
 - 切换白色背景    
 Display -> Background -> White
+```bash
+bg_color white
+```
 
 - 显示序列  
 File -> Get PDB -> PDB ID : 1gtf -> Download
@@ -97,6 +100,14 @@ label res143_protein, "143-%s" % (resn)
 show sticks, res143_protein
 color red, res143_protein
 ```
+
+- 图像保存
+```bash
+png saveID.png, 16.93cm, 16.93cm, dpi=300
+save saveID.png
+```
+
+
 
 ### AlphaFold3   
 AlphaFold3预测的蛋白质之间的互作，使用PyMOL进行查看[example](https://www.bilibili.com/video/BV1Qt8iesE4e/?vd_source=16694f427952f2c01f3659ee0722320a)
